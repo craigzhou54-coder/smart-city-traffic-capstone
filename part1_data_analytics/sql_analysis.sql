@@ -34,3 +34,44 @@ sqlite> select
 2017|3341.0
 2018|3260.0
 
+sqlite> select
+   ...> strftime('%H', date_time) as hour,
+   ...> Round(AVG(traffic_volume),0) as avg_traffic
+   ...> from traffic_data
+   ...> group by hour
+   ...> order by hour;
+00|835.0
+01|516.0
+02|388.0
+03|371.0
+04|703.0
+05|2095.0
+06|4141.0
+07|4740.0
+08|4587.0
+09|4385.0
+10|4185.0
+11|4466.0
+12|4718.0
+13|4715.0
+14|4932.0
+15|5241.0
+16|5664.0
+17|5310.0
+18|4264.0
+19|3276.0
+20|2835.0
+21|2669.0
+22|2199.0
+23|1469.0
+sqlite> select 
+   ...> case
+   ...> when strftime('%w', date_time) in ('0', '6')
+   ...> then 'Weekend'
+   ...> else 'Weekday'
+   ...> End as day_type,
+   ...> Round(AVG(traffic_volume),0) as avg_traffic
+   ...> from traffic_data
+   ...> group by day_type;
+Weekday|3534.0
+Weekend|2571.0

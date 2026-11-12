@@ -43,3 +43,6 @@ Average traffic volume by years:
 ## Insight
 
 Traffic volume remained relatively stable from 2012 to 2018 with moderate fluctuations.
+
+The peak hour was at 16:00 of 5664
+The weekday traffic volume was 3534 and the weekend traffic volume was 2571 in average.
