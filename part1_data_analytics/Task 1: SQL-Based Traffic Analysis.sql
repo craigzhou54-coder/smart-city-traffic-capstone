@@ -1,4 +1,4 @@
-## load data validation
+## 1.1 load data validation
 sqlite> select count(*) FROM traffic_data;
 48204
 
@@ -78,7 +78,7 @@ qlite> select min(date_time), max(date_time)
 
 
 
-## Yearly Analysis
+## 1.2 Yearly Analysis
 sqlite> select> select 
    ...> strftime('%Y', date_time) as year,
    ...> sum(traffic_volume) as total_traffic
@@ -93,7 +93,7 @@ sqlite> select> select
 2017|35428156
 2018|25914633
 
-## New Years Day and Labor Day Temperature Analysis
+## 1.3 New Years Day and Labor Day Temperature Analysis
 sqlite> select
    ...> holiday,
    ...> strftime('%Y', date_time) as year,
@@ -113,6 +113,7 @@ New Years Day|2016|265.9
 New Years Day|2017|270.6
 New Years Day|2018|249.4
 
+## 1.4 Other Analysis
 ## Weather Analysis
 sqlite> select
    ...> weather_main,
