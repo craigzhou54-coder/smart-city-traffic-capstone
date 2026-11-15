@@ -29,7 +29,7 @@ Strength of the relationship:
 The correlation coefficient between temperature and traffic volume is 0.1303. This indicates a very week positive relationship between the two variables. Although traffic volume tends to increase slightly as temperature rises, the strength of the relationship is week. Temperature alone is therefore not a strong predictor of traffic volume.
 Other factors such as commuting patterns, time of day, weekdays versus weekends, holidays, and weather conditions are likely to have a great
 
-Why correlation does not imply causation
+Why correlation does not imply causation:
 Correlation doesn not imply causation. Although temperature and traffic volume show a positive association, this does not prove that higher temperature directly cause increased traffic volume.
 Both variables may be influenced by other factors. For example, warmer temperatures often occur during summer periods when travel activity is naturally higher. Similary, commuting schedules, public holidays, weather events, and seasonal patterns can affect traffic volume independently of temperature.
 Therefore, the observed correlation should only be inerpreted an association rather than evidence of a causal relationship.
