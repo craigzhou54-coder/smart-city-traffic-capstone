@@ -79,8 +79,65 @@ logger.warning(f"Invalid temperature records: {invalid_temp}")
 invalid_rain = (hourly_df["rain_1h"] > 9000).sum()
 logger.warning(f"Extreme rainfall records: {invalid_rain}")
 
+hourly_df.loc[
+    hourly_df["temp"] <= 0, "temp"
+] = pd.NA
 
+hourly_df.loc[
+    hourly_df["rain_1h"] > 9000, 
+    "rain_1h"
+] = pd.NA
 
+temp_median = (
+    hourly_df["temp"].
+    median()
+)
 
-   
+rain_median = (
+    hourly_df["rain_1h"].
+    median()
+)
+
+hourly_df["temp"] = (
+    hourly_df["temp"]
+    .fillna(temp_median)
+)
+
+hourly_df["rain_1h"] = (
+          hourly_df["rain_1h"]
+          .fillna(rain_median)
+)
+
+logger.warning(
+    f"Replaced {invalid_temp} invalid temperature values using median ({temp_median:.2f})"
+)
+
+logger.warning(
+    f"Replaced {invalid_rain} extreme rainfall values using median ({rain_median:.2f})"
+)
+
+hourly_df["weather_main"] = (
+    hourly_df["weather_main"]
+    .str.strip()
+    .str.title()
+)
+
+hourly_df["weather_description"] = (
+    hourly_df["weather_description"]
+    .str.strip()
+    .str.lower()
+)
+
+logger.info(
+    "Standardized weather category values"
+)
+
+hourly_df.to_csv(
+    "data/processed/traffic_clean.csv",
+    index=False
+)
+
+logger.info(
+    "Cleaned dataset saved to data/processed/traffic_clean.csv"
+)
 
