@@ -1,0 +1,28 @@
+2026-11-21 00:33:54,727 | INFO | __main__ | Pipeline started
+2026-11-21 00:33:54,754 | INFO | __main__ | Rows loaded: 48204
+2026-11-21 00:33:54,754 | INFO | __main__ | Columns loaded: 9
+2026-11-21 00:33:54,754 | INFO | __main__ | Schema validation passed
+2026-11-21 00:33:54,754 | INFO | __main__ | Column names: ['holiday', 'temp', 'rain_1h', 'snow_1h', 'clouds_all', 'weather_main', 'weather_description', 'date_time', 'traffic_volume']
+2026-11-21 00:33:54,757 | INFO | __main__ | Duplicate timestamps found: 7629
+2026-11-21 00:33:54,764 | INFO | __main__ | Unique duplicated timestamps: <StringArray>
+['2012-10-10 07:00:00', '2012-10-10 08:00:00', '2012-10-10 09:00:00',
+ '2012-10-14 09:00:00', '2012-10-14 10:00:00', '2012-10-14 11:00:00',
+ '2012-10-14 12:00:00', '2012-10-14 13:00:00', '2012-10-14 14:00:00',
+ '2012-10-14 15:00:00',
+ ...
+ '2018-09-25 00:00:00', '2018-09-25 01:00:00', '2018-09-25 02:00:00',
+ '2018-09-25 12:00:00', '2018-09-25 14:00:00', '2018-09-25 16:00:00',
+ '2018-09-27 07:00:00', '2018-09-29 19:00:00', '2018-09-30 14:00:00',
+ '2018-09-30 15:00:00']
+Length: 5445, dtype: str
+2026-11-21 00:33:54,767 | INFO | __main__ | Rows involved in duplicate timestamps: 13074
+2026-11-21 00:33:54,774 | INFO | __main__ | Showing first 10 duplicate rows
+2026-11-21 00:33:54,777 | INFO | __main__ | Inspecting duplicate timestamp records
+2026-11-21 00:33:54,788 | INFO | __main__ | Unique hourly timestamps: 40575
+2026-11-21 00:33:54,807 | INFO | __main__ | Hourly dataset created: 40575 rows
+2026-11-21 00:33:54,807 | WARNING | __main__ | Invalid temperature records: 10
+2026-11-21 00:33:54,807 | WARNING | __main__ | Extreme rainfall records: 1
+2026-11-21 00:33:54,810 | WARNING | __main__ | Replaced 10 invalid temperature values using median (282.87)
+2026-11-21 00:33:54,810 | WARNING | __main__ | Replaced 1 extreme rainfall values using median (0.00)
+2026-11-21 00:33:54,821 | INFO | __main__ | Standardized weather category values
+2026-11-21 00:33:54,906 | INFO | __main__ | Cleaned dataset saved to data/processed/traffic_clean.csv
