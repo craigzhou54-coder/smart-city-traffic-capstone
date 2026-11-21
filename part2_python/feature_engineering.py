@@ -90,12 +90,38 @@ df["Congestion_Category"] = (
     .apply(congestion_category)
 )
 
+high_congestion = (
+    df["Congestion_Category"]
+    .isin(
+        ["High", "Severe"]
+    )
+)
+
+risky_weather = (
+    (df["Severe_Weather"] == 1)
+    |
+    (df["Low_Visibility"] == 1)
+)
+
+df["High_Risk"] = (
+    high_congestion &
+    risky_weather
+).astype(int)
+
 logger.info(
     "Data-driven congestion categoryies created"
 )
 
 logger.info(
     f"Dataset shape after congestion category: {df.shape}"
+)
+
+logger.info(
+    "Proxy accident-risk label created"
+)
+
+logger.info(
+    f"Dataset shape after risk label:{df.shape}"
 )
 
 df.to_csv(
