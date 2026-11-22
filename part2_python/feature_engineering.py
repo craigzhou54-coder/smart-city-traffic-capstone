@@ -108,6 +108,10 @@ df["High_Risk"] = (
     risky_weather
 ).astype(int)
 
+df["Holiday_Flag"] = (
+    df["holiday"] != "None"
+).astype(int)
+
 logger.info(
     "Data-driven congestion categoryies created"
 )
