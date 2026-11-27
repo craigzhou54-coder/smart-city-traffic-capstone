@@ -3,6 +3,15 @@ from sklearn.model_selection import (train_test_split)
 from sklearn.linear_model import (LinearRegression)
 from sklearn.ensemble import (RandomForestRegressor)
 from sklearn.metrics import (mean_absolute_error, r2_score)
+import logging
+import joblib
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+)
+
+logger = logging.getLogger(__name__)
 
 df = pd.read_csv("../part2_python/data/processed/traffic_features.csv")
 
@@ -86,3 +95,10 @@ print(
 )
 
 print(df["High_Risk"].value_counts())
+
+logger.info("Regression model training completed")
+
+joblib.dump(
+    rf,
+    "models/random_forest_regressor.pkl"
+)
